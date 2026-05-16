@@ -1,7 +1,6 @@
 # pykwave/_scan_body.py
 from __future__ import annotations
 from typing import NamedTuple
-from functools import partial
 import jax
 import jax.numpy as jnp
 
@@ -243,7 +242,7 @@ def scan_step(carry: SimState, xs: dict, *, ops: dict, flags: dict) -> tuple[Sim
         p_min_s = carry.p_min_s
 
     if flags['record_p_rms']:
-        p_rms_sq = carry.p_rms_sq + p_s ** 2 * active
+        p_rms_sq = carry.p_rms_sq + p_s ** 2
     else:
         p_rms_sq = carry.p_rms_sq
 
@@ -260,8 +259,8 @@ def scan_step(carry: SimState, xs: dict, *, ops: dict, flags: dict) -> tuple[Sim
         ux_min_s, uy_min_s = carry.ux_min_s, carry.uy_min_s
 
     if flags['record_u_rms']:
-        ux_rms_sq = carry.ux_rms_sq + ux_s ** 2 * active
-        uy_rms_sq = carry.uy_rms_sq + uy_s ** 2 * active
+        ux_rms_sq = carry.ux_rms_sq + ux_s ** 2
+        uy_rms_sq = carry.uy_rms_sq + uy_s ** 2
     else:
         ux_rms_sq, uy_rms_sq = carry.ux_rms_sq, carry.uy_rms_sq
 
