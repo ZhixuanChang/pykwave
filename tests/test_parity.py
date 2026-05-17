@@ -1,3 +1,6 @@
+# pykwave — JAX implementation of k-Wave pseudospectral acoustic simulation.
+# Based on the k-Wave MATLAB Toolbox (http://www.k-wave.org) by B.E. Treeby & B.T. Cox.
+# SPDX-License-Identifier: LGPL-3.0-or-later
 """
 MATLAB parity tests. Fixtures are .npz files in tests/fixtures/ generated
 by running tests/fixtures/generate_fixtures.m in MATLAB k-Wave.
